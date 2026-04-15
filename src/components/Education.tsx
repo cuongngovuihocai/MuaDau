@@ -7,8 +7,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Send, BookOpen, Sparkles, Loader2 } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
 type Message = {
   role: 'user' | 'model';
   content: string;
@@ -61,6 +59,11 @@ export default function Education() {
     setIsLoading(true);
 
     try {
+      if (!process.env.GEMINI_API_KEY) {
+        throw new Error("Missing API Key");
+      }
+      
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMsg,
