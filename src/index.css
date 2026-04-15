@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  /* Soft pastel pink/purple theme */
+  --background: #fff5f8; /* Very light pink */
+  --foreground: #000000; /* Black for highest contrast */
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #ff9eb5; /* Pastel pink */
+  --primary-foreground: #ffffff;
+  --secondary: #e8dff5; /* Pastel purple */
+  --secondary-foreground: #000000;
+  --muted: #f3f4f6;
+  --muted-foreground: #374151; /* Darker gray for better contrast */
+  --accent: #ffc2d1;
+  --accent-foreground: #000000;
+  --destructive: #ff758f;
+  --destructive-foreground: #ffffff;
+  --border: #f8d7e3;
+  --input: #f8d7e3;
+  --ring: #ff9eb5;
+  --radius: 1.5rem; /* Soft rounded corners */
+}
+
+[data-theme="pink"] {
+  --background: #fff5f8;
+  --foreground: #000000;
+  --primary: #ff9eb5;
+  --primary-foreground: #ffffff;
+  --secondary: #e8dff5;
+  --secondary-foreground: #000000;
+  --accent: #ffc2d1;
+  --accent-foreground: #000000;
+  --ring: #ff9eb5;
+  --border: #f8d7e3;
+  --muted: #fce8ef;
+  --muted-foreground: #374151;
+}
+
+[data-theme="purple"] {
+  --background: #f4f0fa;
+  --foreground: #000000;
+  --primary: #b19cd9;
+  --primary-foreground: #ffffff;
+  --secondary: #e6e0f8;
+  --secondary-foreground: #000000;
+  --accent: #dcd0ff;
+  --accent-foreground: #000000;
+  --ring: #b19cd9;
+  --border: #e6e0f8;
+  --muted: #e6e0f8;
+  --muted-foreground: #374151;
+}
+
+[data-theme="blue"] {
+  --background: #f0f8ff;
+  --foreground: #000000;
+  --primary: #89cff0;
+  --primary-foreground: #ffffff;
+  --secondary: #dff0f8;
+  --secondary-foreground: #000000;
+  --accent: #b3e0ff;
+  --accent-foreground: #000000;
+  --ring: #89cff0;
+  --border: #dff0f8;
+  --muted: #dff0f8;
+  --muted-foreground: #374151;
+}
+
+[data-theme="green"] {
+  --background: #f2fbf7;
+  --foreground: #000000;
+  --primary: #a8e6cf;
+  --primary-foreground: #000000;
+  --secondary: #dcf5eb;
+  --secondary-foreground: #000000;
+  --accent: #c4f0df;
+  --accent-foreground: #000000;
+  --ring: #a8e6cf;
+  --border: #dcf5eb;
+  --muted: #dcf5eb;
+  --muted-foreground: #374151;
+}
+
+[data-theme="yellow"] {
+  --background: #fffdf0;
+  --foreground: #000000;
+  --primary: #fde047;
+  --primary-foreground: #000000;
+  --secondary: #fef08a;
+  --secondary-foreground: #000000;
+  --accent: #fef9c3;
+  --accent-foreground: #000000;
+  --ring: #fde047;
+  --border: #fef08a;
+  --muted: #fef9c3;
+  --muted-foreground: #374151;
+}
+
+[data-theme="orange"] {
+  --background: #fff7ed;
+  --foreground: #000000;
+  --primary: #fdba74;
+  --primary-foreground: #000000;
+  --secondary: #fed7aa;
+  --secondary-foreground: #000000;
+  --accent: #ffedd5;
+  --accent-foreground: #000000;
+  --ring: #fdba74;
+  --border: #fed7aa;
+  --muted: #ffedd5;
+  --muted-foreground: #374151;
+}
+
+[data-theme="brown"] {
+  --background: #fdf8f5;
+  --foreground: #000000;
+  --primary: #d4a373;
+  --primary-foreground: #ffffff;
+  --secondary: #e6ccb2;
+  --secondary-foreground: #000000;
+  --accent: #f5ebe0;
+  --accent-foreground: #000000;
+  --ring: #d4a373;
+  --border: #e6ccb2;
+  --muted: #f5ebe0;
+  --muted-foreground: #374151;
+}
+
+.dark {
+  --background: #2d2428;
+  --foreground: #fce8ef;
+  --card: #3d3136;
+  --card-foreground: #fce8ef;
+  --popover: #3d3136;
+  --popover-foreground: #fce8ef;
+  --primary: #ff9eb5;
+  --primary-foreground: #2d2428;
+  --secondary: #4a3b42;
+  --secondary-foreground: #fce8ef;
+  --muted: #4a3b42;
+  --muted-foreground: #d4b8c5;
+  --accent: #5c4751;
+  --accent-foreground: #fce8ef;
+  --destructive: #ff758f;
+  --destructive-foreground: #ffffff;
+  --border: #4a3b42;
+  --input: #4a3b42;
+  --ring: #ff9eb5;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans transition-colors duration-500;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
